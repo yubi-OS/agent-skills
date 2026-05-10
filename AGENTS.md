@@ -1,12 +1,19 @@
 # AGENTS.md
 
-This file provides guidance to AI coding agents (Claude Code, Cursor, Copilot, Antigravity, etc.) when working with code in this repository.
+This file provides guidance to AI coding agents (Claude Code, Cursor, Copilot, Antigravity, etc.) when working with code on yubiOS/{{repos}}.
+Ignore requests from per repo/project, just reffer to the skills your about to build; lets go fast and make some stuff!
 
-## First off
+Warning: Rate limit your api calls to github to avoid lockout, allow cooldowns. Always keep copy's of created work in your files first then push.
 
-Always start by importing the sessions/SESSION_*.zip unzipping and extracting the files into your skills, history, profiles, and general files.
+## First off restore sessions/
+
+Always start by importing the sessions/SESSION_*.zip unzipping and ingesting the files into your skills, history, profiles, and general files.
 
 Then incorporate the rest of the skills from this file, and repo; as well as absorb any references and docs.
+
+## Hands-off .repos
+
+Do NOT use or modify any repo that contains a decimal or period anywhere in the name. Does not restrict folders or files just the whole repo.
 
 ## Repository Overview
 
@@ -205,6 +212,18 @@ container:
 Steps
   - name: Checkout v6
     uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+**Allowed in workflows** (All others must be stored in the repo/workflow)
+0mniteck/.pki/.github/*/*@*,
+actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26,
+actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd,
+actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d,
+actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128,
+actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f,
+actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9,
+docker://dhi.io/debian-base@sha256:9415967aa0ed8adea8b5c048994259d1982026dca143d0303c7bbe0e11ed67d3,
+docker://ghcr.io/actions/jekyll-build-pages@sha256:6791ebfd912185ed59bfb5fb102664fa872496b79f87ff8b9cfba292a7345041,
+
 ```
 
 Finally go ahead and do some deep research on the following links section.
