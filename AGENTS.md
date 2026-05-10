@@ -11,13 +11,31 @@ Always start by importing the sessions/SESSION_*.zip unzipping and ingesting the
 
 Then incorporate the rest of the skills from this file, and repo; as well as absorb any references and docs.
 
-## Hands-off .repos
-
-Do NOT use or modify any repo that contains a decimal or period anywhere in the name. Does not restrict folders or files just the whole repo.
-
 ## Repository Overview
 
 A collection of skills for Claude.ai and Claude Code for senior software engineers. Skills are packaged instructions and scripts that extend Claude and your coding agents capabilities.
+
+## Hands-off .repos
+
+Do NOT use or modify any repo that contains a decimal or period anywhere in the name. Does not restrict folders or files just the repo.
+
+## Project Repository List
+
+```
+https://github.com/
+│                yubi-OS/ # Org-level
+├───────────────────── yubiOS/ # Main Project
+├───────────────────── bootc/ # Bootable OCI images (fork)
+├───────────────────── bcvk/ # Bootc virtualization kit for our Ci - test VM and image installer/upgrader (fork)
+├───────────────────── mkosi/ # Builder for the OS contaimer images (fork)
+├───────────────────── particleos/ # A good referrence implementation (fork)
+│
+DO NOT USE ───── yubi-OS/
+├───────────────────── .pki/ # HANDS OFF
+├───────────────────── .github/ # HANDS OFF
+├───────────────────── ,yubi-OS.github.io/ # HANDS OFF
+│
+```
 
 ## OpenCode Integration
 
@@ -201,6 +219,7 @@ If the skill requires network access, instruct users to add required domains at 
 ```
 **in OCI for dockerfiles and .rego**
 docker pull dhi.io/debian-base:trixie-debian13-dev@sha256:9415967aa0ed8adea8b5c048994259d1982026dca143d0303c7bbe0e11ed67d3
+docker buildx build --policy reset=true,strict=true,filename=$REPO.rego .
 
 **in Github workflow**
 runs-on: ubuntu-latest
@@ -213,17 +232,16 @@ Steps
   - name: Checkout v6
     uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
-**Allowed in workflows** (All others must be stored in the repo/workflow)
-0mniteck/.pki/.github/*/*@*,
-actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26,
-actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd,
-actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d,
-actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128,
-actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f,
-actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9,
-docker://dhi.io/debian-base@sha256:9415967aa0ed8adea8b5c048994259d1982026dca143d0303c7bbe0e11ed67d3,
-docker://ghcr.io/actions/jekyll-build-pages@sha256:6791ebfd912185ed59bfb5fb102664fa872496b79f87ff8b9cfba292a7345041,
-
+**Allowed in workflows** (All refs must be pinned in the repo/.github/workflow/.yml)
+ - 0mniteck/.pki/.github/*/*@*
+ - actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26
+ - actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+ - actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d
+ - actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128
+ - actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
+ - actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9
+ - docker://dhi.io/debian-base@sha256:9415967aa0ed8adea8b5c048994259d1982026dca143d0303c7bbe0e11ed67d3
+ - docker://ghcr.io/actions/jekyll-build-pages@sha256:6791ebfd912185ed59bfb5fb102664fa872496b79f87ff8b9cfba292a7345041
 ```
 
 Finally go ahead and do some deep research on the following links section.
