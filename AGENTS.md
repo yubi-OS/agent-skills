@@ -190,6 +190,23 @@ Add the skill to project knowledge or paste SKILL.md contents into the conversat
 
 If the skill requires network access, instruct users to add required domains at `claude.ai/settings/capabilities`.
 
+## Default (preffered) Images
+```
+**in OCI for dockerfiles and .rego**
+docker pull dhi.io/debian-base:trixie-debian13-dev@sha256:9415967aa0ed8adea8b5c048994259d1982026dca143d0303c7bbe0e11ed67d3
+
+**in Github workflow**
+runs-on: ubuntu-latest
+container:
+  credentials:
+    username: 0mniteck42
+    password: ${{secrets.DOCKER}}
+  image: docker://dhi.io/debian-base@sha256:9415967aa0ed8adea8b5c048994259d1982026dca143d0303c7bbe0e11ed67d3 # v2026.03.14 trixie-debian13-dev dhi/debian-base
+Steps
+  - name: Checkout v6
+    uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+```
+
 Finally go ahead and do some deep research on the following links section.
 
 ## Deep Research Links
@@ -198,3 +215,8 @@ Finally go ahead and do some deep research on the following links section.
  - https://www.man7.org/linux/man-pages/man5/systemd.unit.5.html
  - https://www.man7.org/linux/man-pages/man5/systemd.service.5.html
  - https://man7.org/linux/man-pages/man7/systemd.directives.7.html
+ - https://docs.docker.com/build/policies/intro/
+ - https://docs.docker.com/build/policies/intro/examples/
+ - https://docs.docker.com/build/policies/intro/intro/
+ - https://docs.docker.com/build/policies/intro/usage/
+ - https://pq.cloudflareresearch.com/
